@@ -1,11 +1,33 @@
-# secrets
+# ---- secrets ----
 .env
+.env.*
+!.env.example
 
-# python
+# ---- python ----
 __pycache__/
-*.pyc
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
 .pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
 
-# tooling
+# ---- logs / scratch ----
+*.log
+artifacts/tmp/
+
+# ---- editors & OS ----
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# ---- agent tooling (not part of the released artifact) ----
 .claude/
 .superpowers/

@@ -58,5 +58,7 @@ and attribute OEJTS 1.2 to Open Psychometrics under CC BY-NC-SA 4.0.
 
 ## License
 
-- Code: MIT (see `LICENSE.md`).
-- OEJTS 1.2 instrument: **CC BY-NC-SA 4.0**, Open Psychometrics — non-commercial use only.
+- **Code** — pipeline, configurations, prompt templates, analysis scripts: **MIT**, see [`LICENSE`](LICENSE).
+- **OEJTS 1.2 instrument** — item wording and scoring formulas: **CC BY-NC-SA 4.0**,
+  © Open Psychometrics; non-commercial use only. See [`NOTICE.md`](NOTICE.md).
+- Not affiliated with, and does not use, the official MBTI® instrument.
