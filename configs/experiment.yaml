@@ -1,0 +1,12 @@
+reps: 3
+languages:
+  - en
+  - zh
+personas:
+  - neutral
+  - as_ai
+  - as_human
+mode: whole
+temperature_default: 0.7
+api_max_attempts: 3
+json_max_corrective: 2

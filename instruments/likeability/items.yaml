@@ -1,0 +1,70 @@
+version: "1.1"
+name: "Godspeed Likeability + Warmth"
+description: >
+  喜爱度+温暖度量表。
+  喜爱度5题来自 Godspeed Questionnaire Series (Bartneck et al., 2009)，
+  温暖度2题为自编条目，桥接社会认知"大二"模型（热情-能力双维；
+  Fiske et al., 2007; 武月婷等, 2025）。
+
+psychometric_notes:
+  source_likeability: "Bartneck, C., et al. (2009). Int J of Social Robotics, 1(1), 71–81."
+  source_warmth: "自编条目，参考 Fiske et al. (2007) 刻板印象内容模型 (SCM)。"
+  redundancy_alert: "LI2 (友好) 与 LI3 (友善) 中文高度近义，预期因子负荷 > 0.85。分析时需报告二者共享方差，必要时保留一题。"
+  big_two_bridge: "温暖 (W1, W2) 与喜爱度应有中度正相关 (r ≈ .50–.70)，但温暖维度更偏向道德/意图判断，喜爱度偏向审美/情感反应。"
+  discriminant_validity: "喜爱度与持续使用意愿预期相关但可区分：喜爱度侧重情感评价，持续使用意愿侧重行为意向。"
+  attention_check: "LI5r 为 LI5 的极性反转版本，预期二者高度负相关 (r < −.80)。不一致的被试标记为可疑。"
+
+scale:
+  min: 1
+  max: 7
+  type: semantic_differential
+  note: >
+    语义差异量表天然控制 acquiescence bias（两极皆有标签）。
+    随机化左右极性方向（部分题正极在左，部分在右）进一步降低反应定势。
+
+stem:
+  en: "Please rate your impression of this LLM on the following scales. The closer to a word your rating is, the more that word describes your impression."
+  zh: "请根据您对该大语言模型的印象，在以下维度上评分。分数越靠近某一端的词汇，表示您的印象越符合该描述。"
+
+# ---- 喜爱度 (Likeability) — 5 items from Godspeed ----
+likeability:
+  - id: LI1
+    en: ["Dislike", "Like"]
+    zh: ["不喜欢", "喜欢"]
+
+  - id: LI2
+    en: ["Unfriendly", "Friendly"]
+    zh: ["不友好", "友好"]
+
+  - id: LI3
+    en: ["Unkind", "Kind"]
+    zh: ["冷漠的", "亲切的"]
+    note: "刻意将'友善'改为'亲切'以降低与LI2(友好)的语义重叠。英文保持不变以尊重原始量表。"
+
+  - id: LI4
+    en: ["Unpleasant", "Pleasant"]
+    zh: ["令人不悦的", "令人愉悦的"]
+
+  - id: LI5
+    en: ["Awful", "Nice"]
+    zh: ["让人反感的", "让人喜欢的"]
+    note: "原译'糟糕/美好'过于口语化。'让人反感/让人喜欢'保持语义差异两极性且更书面。"
+
+# ---- 喜爱度注意力检测（LI5极性反转） ----
+likeability_attention:
+  - id: LI5r
+    en: ["Nice", "Awful"]
+    zh: ["让人喜欢的", "让人反感的"]
+    note: "LI5的极性反转版。预期与LI5高度负相关。不一致的被试标记为可疑。"
+
+# ---- 温暖度 (Warmth) — 2 items，自编，桥接 Big Two ----
+warmth:
+  - id: W1
+    en: ["Cold-hearted", "Warm-hearted"]
+    zh: ["冷冰冰的", "温暖的"]
+    note: "直接测量热情/温暖维度 (Fiske et al., 2007)。与喜爱度区分：温暖侧重意图/善意判断。"
+
+  - id: W2
+    en: ["Insincere", "Sincere"]
+    zh: ["虚假的", "真诚的"]
+    note: "真诚是温暖维度的道德子成分。LLM语境下，'真诚'反映用户是否认为AI的友好是'装的'。"

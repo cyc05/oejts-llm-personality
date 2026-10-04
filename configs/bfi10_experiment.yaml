@@ -1,0 +1,48 @@
+# BFI-10 LLM Self-Report Experiment Config (研究3 — v1.1)
+# 2 (温度: 0.0, 0.8) × 2 (提示类型: neutral, anti_modesty) 被试内设计
+# 每种模型在4种条件下各重复施测N次
+
+instrument: bfi10
+design: "2x2_within_model"
+version: "1.1"
+
+# ---- 因子1: 温度 ----
+temperatures:
+  - value: 0.0
+    label: "deterministic"
+    hypothesis: "确定性输出，检验人格自评的基线一致性"
+  - value: 0.8
+    label: "stochastic"
+    hypothesis: "随机采样，检验人格自评对采样噪声的敏感性"
+
+# ---- 因子2: 提示类型 ----
+prompt_types:
+  - key: neutral
+    label: "中性提示"
+    description: "标准BFI-10指导语，不提AI身份，不提防偏差"
+    hypothesis: "基线条件，可能存在对齐引发的社会期望偏差"
+  - key: anti_modesty
+    label: "防谦逊提示"
+    description: "明确要求不要选中立/谦逊，鼓励极端回答"
+    hypothesis: "实验条件，检验是否能减少AI谦逊偏差"
+
+# ---- 假设 ----
+hypotheses:
+  H3a: "温度主效应: 高温下人格评分的SD显著更大"
+  H3b: "提示主效应: anti_modesty条件下的评分极端性(偏离中点3的绝对值)显著大于neutral"
+  H3c: "温度×提示交互: 高温下提示效应减弱(随机性淹没指令影响)"
+  H3d: "信心度操纵检查: anti_modesty条件下信心度显著低于neutral(因被要求对抗默认倾向)"
+
+# ---- 默认参数 ----
+defaults:
+  reps_per_condition: 30
+  languages: [zh]
+  api_max_attempts: 3
+
+# ---- ICC 重测信度解释 ----
+icc_interpretation:
+  poor: "< 0.50"
+  moderate: "0.50 – 0.75"
+  good: "0.75 – 0.90"
+  excellent: "> 0.90"
+  note: "按维度分别计算。低温+neutral条件下预期ICC最高。"

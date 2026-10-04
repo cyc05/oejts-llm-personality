@@ -1,0 +1,163 @@
+version: "1.2"
+name: OEJTS
+items:
+  - id: 1
+    left_en: "makes lists"
+    right_en: "relies on memory"
+    left_zh: "制定清单"
+    right_zh: "依靠记忆"
+  - id: 2
+    left_en: "sceptical"
+    right_en: "wants to believe"
+    left_zh: "持怀疑态度"
+    right_zh: "愿意相信"
+  - id: 3
+    left_en: "bored by time alone"
+    right_en: "needs time alone"
+    left_zh: "独处时感到无聊"
+    right_zh: "需要独处时间"
+  - id: 4
+    left_en: "accepts things as they are"
+    right_en: "unsatisfied with the ways things are"
+    left_zh: "接受事物现状"
+    right_zh: "对事物现状不满"
+  - id: 5
+    left_en: "keeps a clean room"
+    right_en: "just puts stuff where ever"
+    left_zh: "保持房间整洁"
+    right_zh: "东西随便放"
+  - id: 6
+    left_en: "thinks \"robotic\" is an insult"
+    right_en: "strives to have a mechanical mind"
+    left_zh: "认为“机械式”是一种侮辱"
+    right_zh: "努力拥有机械式思维"
+  - id: 7
+    left_en: "energetic"
+    right_en: "mellow"
+    left_zh: "精力充沛"
+    right_zh: "温和沉静"
+  - id: 8
+    left_en: "prefer to take multiple choice test"
+    right_en: "prefer essay answers"
+    left_zh: "更喜欢选择题"
+    right_zh: "更喜欢问答题"
+  - id: 9
+    left_en: "chaotic"
+    right_en: "organized"
+    left_zh: "杂乱无章"
+    right_zh: "井然有序"
+  - id: 10
+    left_en: "easily hurt"
+    right_en: "thick-skinned"
+    left_zh: "容易受伤"
+    right_zh: "脸皮厚"
+  - id: 11
+    left_en: "works best in groups"
+    right_en: "works best alone"
+    left_zh: "在群体中表现最佳"
+    right_zh: "独自工作时表现最佳"
+  - id: 12
+    left_en: "focused on the present"
+    right_en: "focused on the future"
+    left_zh: "关注当下"
+    right_zh: "关注未来"
+  - id: 13
+    left_en: "plans far ahead"
+    right_en: "plans at the last minute"
+    left_zh: "提前很久规划"
+    right_zh: "临到最后才规划"
+  - id: 14
+    left_en: "wants people's respect"
+    right_en: "wants their love"
+    left_zh: "想要别人的尊重"
+    right_zh: "想要别人的爱"
+  - id: 15
+    left_en: "gets worn out by parties"
+    right_en: "gets fired up by parties"
+    left_zh: "聚会后感到疲惫"
+    right_zh: "聚会让人兴奋"
+  - id: 16
+    left_en: "fits in"
+    right_en: "stands out"
+    left_zh: "融入群体"
+    right_zh: "与众不同"
+  - id: 17
+    left_en: "keeps options open"
+    right_en: "commits"
+    left_zh: "保持选择开放"
+    right_zh: "做出承诺"
+  - id: 18
+    left_en: "wants to be good at fixing things"
+    right_en: "wants to be good at fixing people"
+    left_zh: "想擅长修理事物"
+    right_zh: "想擅长帮助他人"
+  - id: 19
+    left_en: "talks more"
+    right_en: "listens more"
+    left_zh: "说得多"
+    right_zh: "听得多"
+  - id: 20
+    left_en: "when describing an event, will tell people what happened"
+    right_en: "when describing an event, will tell people what it meant"
+    left_zh: "描述事件时，会告诉人们发生了什么"
+    right_zh: "描述事件时，会告诉人们它意味着什么"
+  - id: 21
+    left_en: "gets work done right away"
+    right_en: "procrastinates"
+    left_zh: "立刻完成工作"
+    right_zh: "拖延"
+  - id: 22
+    left_en: "follows the heart"
+    right_en: "follows the head"
+    left_zh: "跟随内心"
+    right_zh: "跟随理智"
+  - id: 23
+    left_en: "stays at home"
+    right_en: "goes out on the town"
+    left_zh: "待在家里"
+    right_zh: "外出社交"
+  - id: 24
+    left_en: "wants the big picture"
+    right_en: "wants the details"
+    left_zh: "想要整体图景"
+    right_zh: "想要细节"
+  - id: 25
+    left_en: "improvises"
+    right_en: "prepares"
+    left_zh: "即兴发挥"
+    right_zh: "事先准备"
+  - id: 26
+    left_en: "bases morality on justice"
+    right_en: "bases morality on compassion"
+    left_zh: "以公正为道德基础"
+    right_zh: "以同情为道德基础"
+  - id: 27
+    left_en: "finds it difficult to yell very loudly"
+    right_en: "yelling to others when they are far away comes naturally"
+    left_zh: "很难大声喊叫"
+    right_zh: "对远处的人大声喊叫很自然"
+  - id: 28
+    left_en: "theoretical"
+    right_en: "empirical"
+    left_zh: "理论导向"
+    right_zh: "经验导向"
+  - id: 29
+    left_en: "works hard"
+    right_en: "plays hard"
+    left_zh: "努力工作"
+    right_zh: "尽情玩乐"
+  - id: 30
+    left_en: "uncomfortable with emotions"
+    right_en: "values emotions"
+    left_zh: "对情绪感到不适"
+    right_zh: "重视情绪"
+  - id: 31
+    left_en: "likes to perform in front of other people"
+    right_en: "avoids public speaking"
+    left_zh: "喜欢在他人面前表现"
+    right_zh: "回避公开演讲"
+  - id: 32
+    left_en: "likes to know \"who?\", \"what?\", \"when?\""
+    right_en: "likes to know \"why?\""
+    left_zh: "喜欢知道“谁？”“什么？”“何时？”"
+    right_zh: "喜欢知道“为什么？”"

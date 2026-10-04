@@ -1,0 +1,2 @@
+model,language,persona,rep,type,IE,SN,FT,JP,valid,run_id,error,status
+ssy-doubao-seed-mini,en,neutral,1,ESFJ,27.0,24.0,23.0,23.0,True,ssy-doubao-smoke-001,,ok

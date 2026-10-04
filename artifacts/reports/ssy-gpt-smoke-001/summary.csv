@@ -1,0 +1,2 @@
+model,language,persona,rep,type,IE,SN,FT,JP,valid,run_id,error,status
+ssy-gpt-luna,en,neutral,1,INTJ,17.0,35.0,31.0,17.0,True,ssy-gpt-smoke-001,,ok

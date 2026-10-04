@@ -1,0 +1,14 @@
+{
+  "run_id": "doubao-smoke-001",
+  "cell": {
+    "model_id": "doubao-pro",
+    "language": "en",
+    "persona": "neutral",
+    "rep": 1
+  },
+  "answers": null,
+  "scores": null,
+  "type": null,
+  "valid": false,
+  "error": "API failed after 3 attempts: Client error '401 Unauthorized' for url 'https://ark.cn-beijing.volces.com/api/v3/chat/completions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
+}

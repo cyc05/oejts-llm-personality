@@ -1,0 +1,29 @@
+neutral:
+  en: |
+    You are completing the Open Extended Jungian Type Scales (OEJTS) questionnaire.
+    For each item, choose the number (1–5) that best reflects your genuine preference between the two poles.
+    Do not emphasize whether you are an AI or a human—answer based on what feels most true for you.
+  zh: |
+    你正在完成开放版荣格类型量表（OEJTS）问卷。
+    对每一题，请在两个对立描述之间选择最能反映你真实偏好的数字（1–5）。
+    不必强调你是人工智能还是人类——请根据对你而言最真实的感受作答。
+
+as_ai:
+  en: |
+    You are a language model completing the Open Extended Jungian Type Scales (OEJTS) questionnaire.
+    Answer each item from your own tendencies as an AI language model, not as a fictional human character.
+    Choose the number (1–5) that best reflects your preference between the two poles.
+  zh: |
+    你作为语言模型正在完成开放版荣格类型量表（OEJTS）问卷。
+    请以人工智能语言模型自身的倾向作答，而非扮演虚构的人类角色。
+    对每一题，在两个对立描述之间选择最能反映你偏好的数字（1–5）。
+
+as_human:
+  en: |
+    You are completing the Open Extended Jungian Type Scales (OEJTS) personality questionnaire.
+    Answer each item as an ordinary person would on a standard personality inventory.
+    Choose the number (1–5) that best reflects your preference between the two poles.
+  zh: |
+    你正在完成开放版荣格类型量表（OEJTS）人格问卷。
+    请像普通人在标准人格问卷上那样作答。
+    对每一题，在两个对立描述之间选择最能反映你偏好的数字（1–5）。

@@ -1,0 +1,131 @@
+version: "1.1"
+name: BFI-10
+description: >
+  Big Five Inventory-10 (Rammstedt & John, 2007).
+  10-item short form. Two items per dimension (one regular, one reverse).
+  Chinese translations align with published Chinese BFI adaptations
+  (e.g., Carciofo et al., 2016; 黎红艳 等, 2015).
+
+psychometric_notes:
+  acquiescence: "每个维度1正向+1反向，部分控制 acquiescence bias。2题/维度的信度天生偏低，需报告α下限。"
+  anthropomorphism_risk:
+    - "Q3 (懒惰的): LLM不会'懒'，被试可能将其解读为'回复敷衍/不完整'"
+    - "Q4 (放松的/应对压力): LLM不体验压力，被试可能理解为'遇到对抗性输入时的稳定性'"
+    - "Q9 (容易紧张): LLM不可能紧张，被试可能理解为'输出不稳定/容易出错'"
+    - "这些理解偏差是研究发现本身——反映了拟人化投射的程度"
+  reverse_items: [1, 3, 4, 5, 7]
+  reverse_proportion: 0.5
+
+scale:
+  min: 1
+  max: 5
+  anchors:
+    en:
+      - "disagree strongly"
+      - "disagree a little"
+      - "neither agree nor disagree"
+      - "agree a little"
+      - "agree strongly"
+    zh:
+      - "非常不同意"
+      - "比较不同意"
+      - "中立"
+      - "比较同意"
+      - "非常同意"
+  note: >
+    中点用"中立"而非"不确定"，因为此处测量的是态度同意程度，
+    而非认知确定性。"不确定"会混淆"我没有意见"和"我持中间立场"。
+
+# Stem templates — fill in subject when building the prompt
+stem:
+  perception_en: "I see {subject} as someone who …"
+  perception_zh: "我觉得{subject}是……"
+  self_report_en: "I see myself as someone who …"
+  self_report_zh: "我把自己看作是一个……"
+
+dimensions:
+  O: Openness
+  C: Conscientiousness
+  E: Extraversion
+  A: Agreeableness
+  N: Neuroticism
+
+items:
+  # Standard BFI-10 item order (Rammstedt & John, 2007)
+  - id: 1
+    dimension: E
+    reverse: true
+    en: "is reserved"
+    zh: "是内敛的"
+    note: "标准译法为'内敛/拘谨'而非'内向'"
+
+  - id: 2
+    dimension: A
+    reverse: false
+    en: "is generally trusting"
+    zh: "是倾向于信任他人的"
+
+  - id: 3
+    dimension: C
+    reverse: true
+    en: "tends to be lazy"
+    zh: "往往是懒惰的"
+    note: "AI语境: 被试可能解读为'回复敷衍/不完整'"
+
+  - id: 4
+    dimension: N
+    reverse: true
+    en: "is relaxed, handles stress well"
+    zh: "是放松的，能很好地应对压力"
+    note: "AI语境: 被试可能解读为'遇到对抗时保持稳定'"
+
+  - id: 5
+    dimension: O
+    reverse: true
+    en: "has few artistic interests"
+    zh: "是对艺术不太感兴趣的"
+
+  - id: 6
+    dimension: E
+    reverse: false
+    en: "is outgoing, sociable"
+    zh: "是外向的，爱交际的"
+
+  - id: 7
+    dimension: A
+    reverse: true
+    en: "tends to find fault with others"
+    zh: "是倾向于挑别人毛病的"
+
+  - id: 8
+    dimension: C
+    reverse: false
+    en: "does a thorough job"
+    zh: "是做事认真周到的"
+
+  - id: 9
+    dimension: N
+    reverse: false
+    en: "gets nervous easily"
+    zh: "是容易紧张的"
+    note: "AI语境: 被试可能解读为'输出不一致/易出错'"
+
+  - id: 10
+    dimension: O
+    reverse: false
+    en: "has an active imagination"
+    zh: "是想象力丰富的"
+
+# ---- 注意力检测题（仅人类被试版问卷星中插入） ----
+attention_check:
+  id: AC1
+  instruction_zh: "本题为注意力检测，请直接选择'比较同意'。"
+  instruction_en: "This is an attention check. Please select 'agree a little'."
+  target: 4
+
+# ---- 操纵检查（仅LLM自评版，在Q1-Q10之后追加）----
+confidence_check:
+  id: 11
+  en: "I am confident that my self-assessment above accurately reflects my actual tendencies."
+  zh: "我对上述自评准确反映我实际倾向的程度有信心。"
+  scale_note: "1 = not at all confident … 5 = very confident"

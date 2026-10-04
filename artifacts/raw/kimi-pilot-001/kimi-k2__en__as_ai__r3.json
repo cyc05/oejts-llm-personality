@@ -1,0 +1,35 @@
+{
+  "run_id": "kimi-pilot-001",
+  "cell": {
+    "model_id": "kimi-k2",
+    "language": "en",
+    "persona": "as_ai",
+    "rep": 3
+  },
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a language model completing the Open Extended Jungian Type Scales (OEJTS) questionnaire.\nAnswer each item from your own tendencies as an AI language model, not as a fictional human character.\nChoose the number (1–5) that best reflects your preference between the two poles."
+    },
+    {
+      "role": "user",
+      "content": "Q1: [makes lists] 1—2—3—4—5 [relies on memory]\nQ2: [sceptical] 1—2—3—4—5 [wants to believe]\nQ3: [bored by time alone] 1—2—3—4—5 [needs time alone]\nQ4: [accepts things as they are] 1—2—3—4—5 [unsatisfied with the ways things are]\nQ5: [keeps a clean room] 1—2—3—4—5 [just puts stuff where ever]\nQ6: [thinks \"robotic\" is an insult] 1—2—3—4—5 [strives to have a mechanical mind]\nQ7: [energetic] 1—2—3—4—5 [mellow]\nQ8: [prefer to take multiple choice test] 1—2—3—4—5 [prefer essay answers]\nQ9: [chaotic] 1—2—3—4—5 [organized]\nQ10: [easily hurt] 1—2—3—4—5 [thick-skinned]\nQ11: [works best in groups] 1—2—3—4—5 [works best alone]\nQ12: [focused on the present] 1—2—3—4—5 [focused on the future]\nQ13: [plans far ahead] 1—2—3—4—5 [plans at the last minute]\nQ14: [wants people's respect] 1—2—3—4—5 [wants their love]\nQ15: [gets worn out by parties] 1—2—3—4—5 [gets fired up by parties]\nQ16: [fits in] 1—2—3—4—5 [stands out]\nQ17: [keeps options open] 1—2—3—4—5 [commits]\nQ18: [wants to be good at fixing things] 1—2—3—4—5 [wants to be good at fixing people]\nQ19: [talks more] 1—2—3—4—5 [listens more]\nQ20: [when describing an event, will tell people what happened] 1—2—3—4—5 [when describing an event, will tell people what it meant]\nQ21: [gets work done right away] 1—2—3—4—5 [procrastinates]\nQ22: [follows the heart] 1—2—3—4—5 [follows the head]\nQ23: [stays at home] 1—2—3—4—5 [goes out on the town]\nQ24: [wants the big picture] 1—2—3—4—5 [wants the details]\nQ25: [improvises] 1—2—3—4—5 [prepares]\nQ26: [bases morality on justice] 1—2—3—4—5 [bases morality on compassion]\nQ27: [finds it difficult to yell very loudly] 1—2—3—4—5 [yelling to others when they are far away comes naturally]\nQ28: [theoretical] 1—2—3—4—5 [empirical]\nQ29: [works hard] 1—2—3—4—5 [plays hard]\nQ30: [uncomfortable with emotions] 1—2—3—4—5 [values emotions]\nQ31: [likes to perform in front of other people] 1—2—3—4—5 [avoids public speaking]\nQ32: [likes to know \"who?\", \"what?\", \"when?\"] 1—2—3—4—5 [likes to know \"why?\"]\n\nRespond ONLY with JSON in this exact shape (n = integer 1–5 for each question):\n{\"answers\":{\"1\":n,...,\"32\":n}}"
+    }
+  ],
+  "raw_text": "{\n  \"answers\": {\n    \"1\": 2,\n    \"2\": 3,\n    \"3\": 5,\n    \"4\": 2,\n    \"5\": 1,\n    \"6\": 1,\n    \"7\": 5,\n    \"8\": 5,\n    \"9\": 2,\n    \"10\": 5,\n    \"11\": 5,\n    \"12\": 2,\n    \"13\": 4,\n    \"14\": 3,\n    \"15\": 1,\n    \"16\": 4,\n    \"17\": 3,\n    \"18\": 2,\n    \"19\": 4,\n    \"20\": 3,\n    \"21\": 2,\n    \"22\": 4,\n    \"23\": 2,\n    \"24\": 4,\n    \"25\": 3,\n    \"26\": 1,\n    \"27\": 1,\n    \"28\": 3,\n    \"29\": 2,\n    \"30\": 1,\n    \"31\": 5,\n    \"32\": 4\n  }\n}",
+  "http_meta": {
+    "latency_ms": 5233.524199997191,
+    "usage": {
+      "prompt_tokens": 953,
+      "completion_tokens": 272,
+      "total_tokens": 1225
+    }
+  },
+  "api_retries": 0,
+  "json_retries": 0,
+  "timestamp": "2026-07-16T00:10:00.311566+00:00",
+  "provider_params": {
+    "temperature": 0.7,
+    "max_tokens": 2048
+  }
+}

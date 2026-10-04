@@ -1,0 +1,2 @@
+model,language,persona,rep,type,IE,SN,FT,JP,valid,run_id,error,status
+qwen-plus,en,neutral,1,ISTP,23.0,21.0,26.0,36.0,True,qwen-smoke-001,,ok

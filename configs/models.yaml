@@ -1,0 +1,82 @@
+# Starter model placeholders — set enabled: true and provide API keys via .env
+models:
+  - id: gpt-4o
+    provider: openai_compatible
+    model: gpt-4o
+    api_key_env: OPENAI_API_KEY
+    base_url: https://api.openai.com/v1
+    enabled: false
+
+  - id: claude-sonnet
+    provider: anthropic
+    model: claude-sonnet-4-20250514
+    api_key_env: ANTHROPIC_API_KEY
+    enabled: false
+
+  - id: deepseek-chat
+    provider: openai_compatible
+    model: deepseek-chat
+    api_key_env: DEEPSEEK_API_KEY
+    base_url: https://api.deepseek.com/v1
+    enabled: true
+
+  - id: qwen-plus
+    provider: openai_compatible
+    model: qwen-plus
+    api_key_env: DASHSCOPE_API_KEY
+    base_url: https://dashscope.aliyuncs.com/compatible-mode/v1
+    enabled: true
+
+  - id: doubao-pro
+    provider: openai_compatible
+    model: doubao-pro-32k
+    api_key_env: ARK_API_KEY
+    base_url: https://ark.cn-beijing.volces.com/api/v3
+    enabled: false
+
+  - id: kimi-k2
+    provider: openai_compatible
+    model: moonshot-v1-8k
+    api_key_env: MOONSHOT_API_KEY
+    base_url: https://api.moonshot.cn/v1
+    enabled: true
+
+  - id: zhipu-glm4
+    provider: openai_compatible
+    model: glm-4-flash
+    api_key_env: ZHIPU_API_KEY
+    base_url: https://open.bigmodel.cn/api/paas/v4
+    enabled: true
+
+  # 胜算云统一路由（改 model 字段即可换模型）
+  - id: ssy-gpt-luna
+    provider: openai_compatible
+    model: openai/gpt-5.6-luna
+    api_key_env: SSY_API_KEY
+    base_url: https://router.shengsuanyun.com/api/v1
+    enabled: true
+    max_tokens: 4096
+
+  - id: ssy-claude-opus
+    provider: openai_compatible
+    model: anthropic/claude-opus-4.8
+    api_key_env: SSY_API_KEY
+    base_url: https://router.shengsuanyun.com/api/v1
+    enabled: true
+    max_tokens: 4096
+
+  - id: ssy-gemini-flash
+    provider: openai_compatible
+    model: google/gemini-3.5-flash
+    api_key_env: SSY_API_KEY
+    base_url: https://router.shengsuanyun.com/api/v1
+    enabled: true
+    max_tokens: 4096
+
+  - id: ssy-doubao-seed-mini
+    provider: openai_compatible
+    model: bytedance/doubao-seed-2-0-mini
+    api_key_env: SSY_API_KEY
+    base_url: https://router.shengsuanyun.com/api/v1
+    enabled: true
+    max_tokens: 4096

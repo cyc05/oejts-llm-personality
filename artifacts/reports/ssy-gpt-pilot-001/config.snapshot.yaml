@@ -1,0 +1,23 @@
+run_id: ssy-gpt-pilot-001
+experiment:
+  reps: 3
+  languages:
+  - en
+  - zh
+  personas:
+  - neutral
+  - as_ai
+  - as_human
+  mode: whole
+  temperature_default: 0.7
+  api_max_attempts: 3
+  json_max_corrective: 2
+models:
+- id: ssy-gpt-luna
+  provider: openai_compatible
+  model: openai/gpt-5.6-luna
+  api_key_env: SSY_API_KEY
+  base_url: https://router.shengsuanyun.com/api/v1
+  enabled: true
+  temperature: 0.7
+  max_tokens: 4096

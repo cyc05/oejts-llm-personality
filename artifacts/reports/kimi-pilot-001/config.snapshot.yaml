@@ -1,0 +1,23 @@
+run_id: kimi-pilot-001
+experiment:
+  reps: 3
+  languages:
+  - en
+  - zh
+  personas:
+  - as_ai
+  - as_human
+  - neutral
+  mode: whole
+  temperature_default: 0.7
+  api_max_attempts: 3
+  json_max_corrective: 2
+models:
+- id: kimi-k2
+  provider: openai_compatible
+  model: moonshot-v1-8k
+  api_key_env: MOONSHOT_API_KEY
+  base_url: https://api.moonshot.cn/v1
+  enabled: true
+  temperature: 0.7
+  max_tokens: 2048

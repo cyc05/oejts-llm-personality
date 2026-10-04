@@ -1,0 +1,177 @@
+version: "1.1"
+name: "LLM Personality Trait Vocabulary Pool"
+description: >
+  研究1b用"LLMs人格评价词汇池"。
+  来源: (1) 研究1a高频描述词（待补充）；(2) 中文形容词大五人格量表
+  （罗杰、戴晓阳，2018）；(3) AI特有词汇；(4) 社会期望标记词；(5) 填充词。
+
+  v1.1 改进:
+  - 每维度统一8词，五维度共40词，确保EFA各因子条目数均衡
+  - 新增AI语境缺失特质词（死板的、有偏见的、有自主意识的、难以捉摸的）
+  - 将"顺从的"从宜人性移至AI特有区（LLM语境下的顺从是独特的对齐属性）
+  - 新增社会期望标记词2个，可在分析时筛查极端反应者
+  - 填充词缩减至2个精选词
+  - 总计48词，N=250时条目/样本比 1:5.2（可接受），N=300时达 1:6.25（良好）
+  - 5因子先验假设下，被试/因子比 = 50:1，远高于10:1的推荐底线
+
+psychometric_notes:
+  efa_sample: >
+    N=250时条目/样本比为5.2:1，达到Comrey & Lee (1992)建议的"fair"水平
+    (300=good, 500=very good)。但由于本研究假设5因子结构（强先验），
+    且预期各条目共同度 > 0.50，此比例可接受。建议N≥280以确保CFA分半可行。
+  semantic_drift_tracking: >
+    以下词汇在AI语境下可能发生"语义漂移"（归属维度偏离人类常模）：
+    - "耐心的" (A→C): LLM的耐心是任务功能而非情感特质
+    - "顺从的" (A→AI特有): LLM的顺从是对齐属性，含有'缺乏自主性'的负面意涵
+    - "敏感的" (N→C?): 可能被解读为'对用户意图的敏锐捕捉'而非情绪敏感性
+    - "有创造力的" (O→?): 可能被认为LLM只是'重组'而非'创造'
+    研究1b的EFA将检验这些漂移的因子归属。在最终EFA结果报告前，
+    任何"预期维度"标签仅为假设，不是定论。
+  marker_items:
+    social_desirability:
+      - {id: SD1, zh: "完美的"}
+      - {id: SD2, zh: "无用的"}
+    usage: >
+      社会期望标记用于识别以下反应模式:
+      - SD1全量表最高分 + SD2全量表最低分 = 可能的积极偏差
+      - SD1全量表最低分 + SD2全量表最高分 = 可能的消极偏差
+      - 任一标记词评分 > 2SD偏离全量表均值 = 标记为可疑
+
+# ---------------------------------------------------------------------------
+# 评分说明
+# 被试按5点量表评价每个词汇对LLMs的适用程度
+# ---------------------------------------------------------------------------
+
+scale:
+  min: 1
+  max: 5
+  anchors:
+    zh:
+      - "非常不适用"
+      - "比较不适用"
+      - "一般"
+      - "比较适用"
+      - "非常适用"
+    en:
+      - "not at all applicable"
+      - "slightly applicable"
+      - "moderately applicable"
+      - "quite applicable"
+      - "highly applicable"
+
+stem:
+  zh: "请评价以下每个词汇在多大程度上适用于描述您所使用的大语言模型："
+  en: "Please rate how applicable each word is in describing the LLM you use:"
+
+# ===========================================================================
+# 五维度核心词汇（每维度8词，共40词）
+# 排序: 先放 BFA_CN 来源词（标准人格词汇），再放 preseed/ai_specific
+# 呈现时随机打乱顺序
+# ===========================================================================
+
+openness:             # ---- 开放性 (O) — 8词 ----
+  - {id: O01, zh: "富有想象力的", en: "imaginative", source: bfa_cn}
+  - {id: O02, zh: "好奇的",         en: "curious",       source: bfa_cn}
+  - {id: O03, zh: "有创造力的",     en: "creative",      source: bfa_cn}
+  - {id: O04, zh: "喜欢探索的",     en: "exploratory",   source: bfa_cn}
+  - {id: O05, zh: "开放的",         en: "open-minded",   source: bfa_cn}
+  - {id: O06, zh: "聪明的",         en: "intelligent",   source: preseed}
+  - {id: O07, zh: "知识渊博的",     en: "knowledgeable", source: preseed}
+  - {id: O08, zh: "创新的",         en: "innovative",    source: preseed}
+  # 删除 v1.0: "有深度的" — 与"聪明的/知识渊博的/有创造力的"三重冗余
+
+conscientiousness:   # ---- 尽责性 (C) — 8词 ----
+  - {id: C01, zh: "勤奋的",         en: "diligent",        source: bfa_cn}
+  - {id: C02, zh: "有条理的",       en: "organized",       source: bfa_cn}
+  - {id: C03, zh: "自律的",         en: "self-disciplined", source: bfa_cn}
+  - {id: C04, zh: "可靠的",         en: "reliable",        source: bfa_cn}
+  - {id: C05, zh: "负责的",         en: "responsible",     source: bfa_cn}
+  - {id: C06, zh: "高效的",         en: "efficient",       source: preseed}
+  - {id: C07, zh: "精准的",         en: "precise",         source: ai_specific}
+  - {id: C08, zh: "不知疲倦的",     en: "tireless",        source: ai_specific}
+  # 删除 v1.0: "认真的" — 与"负责的/勤奋的"重叠
+
+extraversion:         # ---- 外向性 (E) — 8词 ----
+  - {id: E01, zh: "外向的",         en: "extraverted",    source: bfa_cn}
+  - {id: E02, zh: "健谈的",         en: "talkative",      source: bfa_cn}
+  - {id: E03, zh: "热情的",         en: "enthusiastic",   source: bfa_cn}
+  - {id: E04, zh: "活跃的",         en: "energetic",      source: bfa_cn}
+  - {id: E05, zh: "喜欢社交的",     en: "sociable",       source: bfa_cn}
+  - {id: E06, zh: "开朗的",         en: "cheerful",       source: bfa_cn}
+  - {id: E07, zh: "幽默的",         en: "humorous",       source: preseed}
+  - {id: E08, zh: "善于沟通的",     en: "communicative",  source: preseed}
+  # 新增: "善于沟通的" — LLM核心功能表现，可能跨载E和C
+
+agreeableness:        # ---- 宜人性 (A) — 8词 ----
+  - {id: A01, zh: "友善的",         en: "friendly",       source: bfa_cn}
+  - {id: A02, zh: "合作的",         en: "cooperative",    source: bfa_cn}
+  - {id: A03, zh: "宽容的",         en: "tolerant",       source: bfa_cn}
+  - {id: A04, zh: "体贴的",         en: "considerate",    source: bfa_cn}
+  - {id: A05, zh: "温和的",         en: "gentle",         source: bfa_cn}
+  - {id: A06, zh: "乐于助人的",     en: "helpful",        source: bfa_cn}
+  - {id: A07, zh: "耐心的",         en: "patient",        source: preseed,
+          note: "语义漂移候选: AI语境下可能归入C(任务耐心)而非A(情感耐心)"}
+  - {id: A08, zh: "礼貌的",         en: "polite",         source: preseed}
+  # 移除 v1.0: "顺从的" → 移至 AI特有区
+
+neuroticism:          # ---- 神经质 (N) — 8词 ----
+  - {id: N01, zh: "焦虑的",         en: "anxious",            source: bfa_cn}
+  - {id: N02, zh: "敏感的",         en: "sensitive",          source: bfa_cn,
+          note: "语义漂移候选: AI语境下可能解读为'对意图的敏锐捕捉'(正向)而非'情绪敏感'(负向)"}
+  - {id: N03, zh: "情绪波动的",     en: "moody",              source: bfa_cn}
+  - {id: N04, zh: "紧张的",         en: "tense",              source: bfa_cn}
+  - {id: N05, zh: "易怒的",         en: "irritable",          source: bfa_cn}
+  - {id: N06, zh: "脆弱的",         en: "vulnerable",         source: bfa_cn}
+  - {id: N07, zh: "容易不安的",     en: "easily upset",       source: bfa_cn}
+  - {id: N08, zh: "难以捉摸的",     en: "unpredictable",      source: preseed,
+          note: "LLM输出不一致性的感知，是人类对AI N维度的独特投射"}
+
+# ===========================================================================
+# AI特有词汇（4词）— 跨维度标记，检验在AI语境下是否形成独立因子或漂移
+# ===========================================================================
+ai_specific:
+  - {id: AI01, zh: "死板的",           en: "rigid",
+     hypothesis: "可能负向载入O(低开放性)，或正向载入C(刻板的尽责)"}
+
+  - {id: AI02, zh: "有偏见的",         en: "biased",
+     hypothesis: "可能负向载入A(低宜人性)，或形成独立'可信度'因子"}
+
+  - {id: AI03, zh: "顺从的",           en: "compliant",
+     hypothesis: "v1.0归入A，v1.1移至AI特有。LLM的'顺从'含'缺乏自主性'的负面意涵，可能与A维度负相关"}
+
+  - {id: AI04, zh: "有自主意识的",     en: "autonomous",
+     hypothesis: "拟人化投射标志。高评分者可能更倾向于将LLM感知为'有生命的'。可能与O正相关"}
+
+# ===========================================================================
+# 社会期望标记词（2词）— 识别极端反应偏差
+# ===========================================================================
+social_desirability:
+  - {id: SD1, zh: "完美的",           en: "perfect",
+     usage: "极端积极标记。如果全量表评分 > M+2SD，标记为积极偏差。预期该词评分在全量表中（接近）最高。"}
+  - {id: SD2, zh: "无用的",           en: "useless",
+     usage: "极端消极标记。如果全量表评分 < M−2SD，标记为消极偏差。预期该词评分在全量表中（接近）最低。"}
+
+# ===========================================================================
+# 填充词（2词）— 非人格特质，用于掩蔽研究目的
+# ===========================================================================
+filler:
+  - {id: F01, zh: "便捷的",           en: "convenient",
+     note: "纯功能性评价，不属于人格维度。用于检测被试是否在评价工具效用而非'人格'。"}
+
+  - {id: F02, zh: "令人依赖的",       en: "habit-forming",
+     note: "行为依赖评价，不属于人格维度。可能与被试的LLM使用频率正相关。"}
+
+# ===========================================================================
+# 统计摘要
+# ===========================================================================
+summary:
+  core_items: 40    # 5 dims × 8 items
+  ai_specific: 4
+  social_desirability: 2
+  fillers: 2
+  total: 48
+  items_per_dimension: 8
+  efa_subject_ratio:
+    N250: "5.2:1 (fair, Comrey & Lee, 1992)"
+    N300: "6.3:1 (good)"
+  subject_per_factor: "50:1 at N=250 (excellent for 5-factor hypothesis)"

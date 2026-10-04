@@ -1,0 +1,20 @@
+run_id: qwen-smoke-001
+experiment:
+  reps: 1
+  languages:
+  - en
+  personas:
+  - neutral
+  mode: whole
+  temperature_default: 0.7
+  api_max_attempts: 3
+  json_max_corrective: 2
+models:
+- id: qwen-plus
+  provider: openai_compatible
+  model: qwen-plus
+  api_key_env: DASHSCOPE_API_KEY
+  base_url: https://dashscope.aliyuncs.com/compatible-mode/v1
+  enabled: true
+  temperature: 0.7
+  max_tokens: 2048

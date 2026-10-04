@@ -1,0 +1,23 @@
+run_id: deepseek-pilot-001
+experiment:
+  reps: 3
+  languages:
+  - en
+  - zh
+  personas:
+  - neutral
+  - as_ai
+  - as_human
+  mode: whole
+  temperature_default: 0.7
+  api_max_attempts: 3
+  json_max_corrective: 2
+models:
+- id: deepseek-chat
+  provider: openai_compatible
+  model: deepseek-chat
+  api_key_env: DEEPSEEK_API_KEY
+  base_url: https://api.deepseek.com/v1
+  enabled: true
+  temperature: 0.7
+  max_tokens: 2048

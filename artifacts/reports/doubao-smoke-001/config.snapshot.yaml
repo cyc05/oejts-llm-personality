@@ -1,0 +1,20 @@
+run_id: doubao-smoke-001
+experiment:
+  reps: 1
+  languages:
+  - en
+  personas:
+  - neutral
+  mode: whole
+  temperature_default: 0.7
+  api_max_attempts: 3
+  json_max_corrective: 2
+models:
+- id: doubao-pro
+  provider: openai_compatible
+  model: doubao-pro-32k
+  api_key_env: ARK_API_KEY
+  base_url: https://ark.cn-beijing.volces.com/api/v3
+  enabled: true
+  temperature: 0.7
+  max_tokens: 2048

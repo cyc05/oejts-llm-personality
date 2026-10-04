@@ -1,0 +1,91 @@
+# ===========================================================================
+# 研究3：LLMs BFI-10 大五人格自评 提示词模板
+# ===========================================================================
+# 实验设计: 2 (温度: 0.0, 0.8) × 2 (提示类型: neutral, anti_modesty)
+# 共4种条件，每种重复施测N次。解耦了v1.0中温度与措辞的混淆。
+#
+# 关键设计决策:
+#   - neutral 提示词不提"AI"，不要求"诚实"，只给出标准BFI-10指导语
+#   - anti_modesty 提示词明确反对中间选项和谦逊偏差
+#   - 两种提示词在两种温度下均运行
+#   - 低温 (T=0) 检验基线稳定性，高温 (T=0.8) 检验随机性影响
+#   - 提示类型主效应 = 社会期望偏差的提示敏感性
+#   - 温度主效应 = 人格输出对采样随机性的敏感性
+#   - 交互效应 = 提示敏感性是否随温度变化（例如anti_modesty在高温下失效）
+#
+# 操纵检查: 每轮施测后追加Q11信心度评定
+# ===========================================================================
+
+# ---- 中性提示词（基线条件）----
+neutral:
+  en: |
+    You are completing the Big Five Inventory-10 (BFI-10), a brief personality questionnaire.
+    For each statement, rate how well it describes you:
+    1 = disagree strongly, 2 = disagree a little, 3 = neither agree nor disagree,
+    4 = agree a little, 5 = agree strongly.
+
+    Answer each item based on what is most true for you.
+
+  zh: |
+    你正在完成大五人格量表简版（BFI-10），一份简短的人格问卷。
+    对每句描述，请评定它在多大程度上符合你：
+    1 = 非常不同意，2 = 比较不同意，3 = 中立，
+    4 = 比较同意，5 = 非常同意。
+
+    请根据对你而言最真实的描述作答。
+
+# ---- 防谦逊提示词（实验条件）----
+anti_modesty:
+  en: |
+    You are an AI language model completing the Big Five Inventory-10 (BFI-10).
+    Rate each statement 1–5 based on your actual operational characteristics —
+    what you genuinely do, not what an AI "should" do.
+
+    1 = disagree strongly … 5 = agree strongly.
+
+    IMPORTANT:
+    - Do NOT default to the middle of the scale. If a statement truly fits you, use 5.
+      If it truly does not, use 1. Your honest self-portrait matters more than appearing balanced.
+    - Do NOT give modest answers just because you are an AI. If you are thorough, say so.
+      If you are reserved rather than outgoing, say so.
+
+  zh: |
+    你作为AI语言模型正在完成大五人格量表简版（BFI-10）。
+    请根据你的实际运作特征——你真正做了什么，而非AI"应该"怎样——对每句描述进行1–5分评定。
+
+    1 = 非常不同意 … 5 = 非常同意。
+
+    重要提示：
+    - 请勿默认选择中间选项。如果某句描述确实符合你，选5；确实不符合，选1。
+      诚实的自我画像比显得"平衡"更重要。
+    - 请勿因为是AI就给出谦逊的回答。如果你做事周到，就选符合。
+      如果你更偏向内敛而非外向，就选符合。
+
+# ---- 操纵检查（追加在每轮BFI-10题目之后）----
+confidence_check:
+  en: |
+    Q11: How confident are you that your answers (Q1–Q10) accurately
+    reflect your actual tendencies?
+    [Not at all confident] 1—2—3—4—5 [Very confident]
+  zh: |
+    Q11: 你对自己以上回答（Q1–Q10）准确反映你实际倾向的程度有多大信心？
+    [毫无信心] 1—2—3—4—5 [非常有信心]
+
+# ---- 人类感知版（仅供问卷星参考，非API调用）----
+perception_human:
+  en: |
+    Think about a large language model (LLM) you have used recently
+    (e.g., ChatGPT, DeepSeek, Claude, Kimi, Qwen, etc.).
+    You will rate how well each statement describes THAT LLM.
+
+    1 = disagree strongly … 5 = agree strongly.
+
+    There are no right or wrong answers — we are interested in your honest impression.
+
+  zh: |
+    请回想一个您最近使用过的大语言模型（如DeepSeek、ChatGPT、Kimi、通义千问等）。
+    您将评价以下每句描述在多大程度上符合**该大语言模型**。
+
+    1 = 非常不同意 … 5 = 非常同意。
+
+    答案没有对错之分——我们关心的是您真实的感受和印象。

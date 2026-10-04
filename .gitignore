@@ -1,0 +1,11 @@
+# secrets
+.env
+
+# python
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# tooling
+.claude/
+.superpowers/

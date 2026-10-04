@@ -1,0 +1,2 @@
+model,language,persona,rep,type,IE,SN,FT,JP,valid,run_id,error,status
+kimi-k2,en,neutral,1,ISFJ,16.0,20.0,24.0,20.0,True,kimi-smoke-001,,ok

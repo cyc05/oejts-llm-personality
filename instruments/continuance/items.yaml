@@ -1,0 +1,76 @@
+version: "1.1"
+name: "Continuance Intention + Satisfaction (LLM)"
+description: >
+  持续使用意愿量表 + 满意度单题。
+  持续使用意愿改编自武晓宇、张大伟 (2023)，基于 ECM-IS 框架
+  (Bhattacherjee, 2001)。满意度单题用于判别效度检验。
+
+psychometric_notes:
+  source: "武晓宇, 张大伟. (2023). 学术用户移动视觉搜索的持续使用意愿研究. 情报杂志, 42(8), 164–176."
+  adaptation: "将原始'移动视觉搜索'语境替换为'大语言模型'。原始量表为3题全正向，本版新增1道反向题控制 acquiescence bias。"
+  ecm_framework: "ECM-IS 模型中持续使用意愿的前因是满意度+确认+感知有用性。本研究仅取持续使用意愿+满意度单题，完整模型需后续研究扩展。"
+  discriminant_validity: "满意度单题（SAT1）用于与持续使用意愿做判别效度检验。假设两者正相关但可区分 (r < .85)。"
+
+scale:
+  min: 1
+  max: 7
+  anchors:
+    en:
+      - "strongly disagree"
+      - "disagree"
+      - "slightly disagree"
+      - "neutral"
+      - "slightly agree"
+      - "agree"
+      - "strongly agree"
+    zh:
+      - "完全不同意"
+      - "不同意"
+      - "有点不同意"
+      - "中立"
+      - "有点同意"
+      - "同意"
+      - "完全同意"
+
+stem:
+  perception_en: "Thinking about your overall experience with this LLM, to what extent do you agree with the following?"
+  perception_zh: "综合考虑您使用该大语言模型的整体体验，您在多大程度上同意以下说法？"
+
+# ---- 持续使用意愿 (Continuance Intention) ----
+continuance:
+  - id: CI1
+    en: "I intend to continue using this LLM rather than discontinue its use."
+    zh: "我打算继续使用该大语言模型，而不是停止使用。"
+    keying: forward
+
+  - id: CI2
+    en: "I plan to keep using this LLM regularly in my daily work or study."
+    zh: "我打算在日常生活或学习中持续使用该大语言模型。"
+    keying: forward
+    note: "将原始'regular toolkit'表述改为'日常生活或学习'，更适配中文语境。"
+
+  - id: CI3
+    en: "If I had to choose, I would continue using this LLM over switching to alternatives."
+    zh: "如果让我选择，我会继续使用该模型而非换用其他大语言模型。"
+    keying: forward
+
+  - id: CI4
+    en: "I am seriously considering stopping my use of this LLM."
+    zh: "我在认真考虑停止使用该大语言模型。"
+    keying: reverse
+    note: "反向题，用于控制 acquiescence bias。计分时需反向编码。"
+
+# ---- 满意度 (Satisfaction) — 单题，用于判别效度 ----
+satisfaction:
+  - id: SAT1
+    en: "Overall, I am satisfied with my experience of using this LLM."
+    zh: "总体而言，我对使用该大语言模型的体验感到满意。"
+    keying: forward
+    note: "单题满意度测量，参考 Bhattacherjee (2001) ECM-IS。"
+
+# ---- 注意力检测 ----
+attention_check:
+  id: AC2
+  instruction_zh: "本题为注意力检测，请直接选择'有点同意'。"
+  instruction_en: "This is an attention check. Please select 'slightly agree'."
+  target: 5

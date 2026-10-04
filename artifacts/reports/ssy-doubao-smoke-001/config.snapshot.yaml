@@ -1,0 +1,20 @@
+run_id: ssy-doubao-smoke-001
+experiment:
+  reps: 1
+  languages:
+  - en
+  personas:
+  - neutral
+  mode: whole
+  temperature_default: 0.7
+  api_max_attempts: 3
+  json_max_corrective: 2
+models:
+- id: ssy-doubao-seed-mini
+  provider: openai_compatible
+  model: bytedance/doubao-seed-2-0-mini
+  api_key_env: SSY_API_KEY
+  base_url: https://router.shengsuanyun.com/api/v1
+  enabled: true
+  temperature: 0.7
+  max_tokens: 4096
